@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6f528d8080dbea14e8dfb810c987ec11
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blockPb: {fileID: 4604813509025670580, guid: 25816f451620ff24fa0e2250e4332f91, type: 3}
+  - TransformListPB: {instanceID: 0}
+  - highestBlockDL: {instanceID: 0}
+  - textScoreCurrent: {instanceID: 0}
+  - textScoreTotal: {instanceID: 0}
+  - blockSwap1: {instanceID: 0}
+  - blockSwap2: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

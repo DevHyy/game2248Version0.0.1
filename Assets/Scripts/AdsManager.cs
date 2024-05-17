@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AdsManager : MonoBehaviour {
   BannerView _bannerView;
-  private string _adBannerUnitId = "ca-app-pub-3940256099942544/6300978111";
+  private string _adBannerUnitId = "ca-app-pub-1931191948345927/7915247833";
 
   private InterstitialAd _interstitialAd;
   private string _adInterstitialUnitId = "ca-app-pub-1931191948345927/5887796391";

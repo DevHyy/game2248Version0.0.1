@@ -6699,7 +6699,6 @@ GameObject:
   - component: {fileID: 314331676}
   - component: {fileID: 314331680}
   - component: {fileID: 314331681}
-  - component: {fileID: 314331682}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6915,19 +6914,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6e0d7a10cc8d5c948ab14072d50d90e3, type: 3}
   - {fileID: 21300000, guid: 1ca8957b0b846d642804537521f55997, type: 3}
   - {fileID: 21300000, guid: 6905c3a0ec148dd4095c66630c915e6f, type: 3}
---- !u!114 &314331682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314331675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353d9a3815aab6d4b8e509238d2a5138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OdulText: {fileID: 0}
 --- !u!1 &314440006
 GameObject:
   m_ObjectHideFlags: 0
@@ -8983,6 +8969,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404220623}
   m_CullTransparentMesh: 1
+--- !u!1 &407089834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407089835}
+  - component: {fileID: 407089836}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407089835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407089834}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 48.056873, y: 52.677727, z: -102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885880582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407089836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407089834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353d9a3815aab6d4b8e509238d2a5138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OdulText: {fileID: 0}
+  isBanneHide: 0
+  isInterstitialAdHide: 0
 --- !u!1 &409290690
 GameObject:
   m_ObjectHideFlags: 0
@@ -28572,31 +28605,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1294303533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 314331682}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: LoadInterstitialAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 314331682}
-        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: ShowInterstitialAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1294303533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32937,9 +32946,6 @@ MonoBehaviour:
   - unit: Diamonds
     reward: 350
     sprite: {fileID: 21300000, guid: c3a0fc9ee6d28014191a796a0501f5e3, type: 3}
-  - unit: Diamonds
-    reward: 500
-    sprite: {fileID: 21300000, guid: 0e08e1fc6841ef549ae77f003f03b401, type: 3}
   availableReward: 0
   lastReward: 0
   keepOpen: 0
@@ -44741,6 +44747,7 @@ Transform:
   m_Children:
   - {fileID: 1525091847}
   - {fileID: 1485561585}
+  - {fileID: 407089835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885880583

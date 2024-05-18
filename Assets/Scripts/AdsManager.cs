@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AdsManager : MonoBehaviour {
+public class AdsManager : Singleton<AdsManager> {
   BannerView _bannerView;
   private string _adBannerUnitId = "ca-app-pub-1931191948345927/7915247833";
 
@@ -15,8 +15,8 @@ public class AdsManager : MonoBehaviour {
   private string _adRewardUnitId = "ca-app-pub-3940256099942544/5224354917";
 
   public Text OdulText;
-  private bool isBanneHide;
-
+  public bool isBanneHide;
+  public bool isInterstitialAdHide;
   void Start() {
     // Initialize the Google Mobile Ads SDK.
     MobileAds.Initialize((InitializationStatus initStatus) => {
@@ -134,19 +134,20 @@ public class AdsManager : MonoBehaviour {
         _interstitialAd = ad;
       });
   }
-
   public void ShowInterstitialAd() {
     if (_interstitialAd != null && _interstitialAd.CanShowAd()) {
       Debug.Log("Showing interstitial ad.");
       _interstitialAd.Show();
+      isInterstitialAdHide = true; // Set to true when the ad is shown
       RegisterReloadHandler(_interstitialAd);
     }
     else {
       Debug.LogError("Interstitial ad is not ready yet.");
+      isInterstitialAdHide = false; // Set to false if there is no ad to show
     }
   }
 
-  private void RegisterEventHandlers(InterstitialAd interstitialAd) {
+  public void RegisterEventHandlers(InterstitialAd interstitialAd) {
     // Raised when the ad is estimated to have earned money.
     interstitialAd.OnAdPaid += (AdValue adValue) => {
       Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
@@ -168,10 +169,13 @@ public class AdsManager : MonoBehaviour {
     };
   }
 
-  private void RegisterReloadHandler(InterstitialAd interstitialAd) {
+  public void RegisterReloadHandler(InterstitialAd interstitialAd) {
     // Raised when the ad closed full screen content.
     interstitialAd.OnAdFullScreenContentClosed += () => {
       Debug.Log("Interstitial Ad full screen content closed.");
+
+      // Set to false when the ad is closed
+      isInterstitialAdHide = false;
 
       // Reload the ad so that we can show another as soon as possible.
       LoadInterstitialAd();
@@ -185,7 +189,18 @@ public class AdsManager : MonoBehaviour {
       LoadInterstitialAd();
     };
   }
-
+  
+  public bool CheckisInterstitialAd() {
+    LoadInterstitialAd();
+    ShowInterstitialAd();
+    if (AdsManager.Instance.isInterstitialAdHide == false) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  
   #endregion
 
   #region RewardedAd
@@ -251,4 +266,5 @@ public class AdsManager : MonoBehaviour {
   }
 
   #endregion
+  
 }

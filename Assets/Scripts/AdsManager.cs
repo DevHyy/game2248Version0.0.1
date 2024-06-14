@@ -12,7 +12,7 @@ public class AdsManager : MonoBehaviour {
 
 
   private RewardedAd _rewardedAd;
-  private string _adRewardUnitId = "ca-app-pub-3940256099942544/5224354917";
+  private string _adRewardUnitId = "ca-app-pub-1931191948345927/9736750910";
 
   public Text OdulText;
   private bool isBanneHide;
@@ -25,7 +25,7 @@ public class AdsManager : MonoBehaviour {
 
     //LoadBannerAd();
     //LoadInterstitialAd();
-    //LoadRewardedAd();
+    LoadRewardedAd();
   }
 
   #region Banner
